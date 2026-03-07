@@ -92,3 +92,27 @@ my_dict = {
 my_dict["city"] = "Cork"
 
 print(my_dict)
+
+#TUPLES
+# Different from list is that tuple can not be changed once it is defined. 
+# Can not remove & append any element
+tuple1 = ()
+tuple2 = tuple()
+tuple3 = (1,2,3,"string", True)
+tuple4 = 4, 5, 6
+
+tuple_of_tuples = (tuple1, tuple2, tuple3)
+
+for t in tuple_of_tuples:
+    print(t,type(t))
+
+# SETS
+# SETS only have unqie values, not allow to have duplicated values. 
+set1 = {}
+set2 = set()
+
+print(set1, type(set1)) #set1 will be a diectinary
+print(set2, type(set2)) #type is set
+
+set3 = {1, 2, 2}
+print(set3, type(set3)) #set2 is set type now
