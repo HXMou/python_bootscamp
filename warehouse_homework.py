@@ -31,6 +31,7 @@ while True:
         if command == "END":
             print("Finish the programm. Bye.")
             break
+
         elif command == "BALANCE":
             amount = float(input("Enter the amount to add or subtract: "))
             total_balance += amount
@@ -88,8 +89,9 @@ while True:
             to_command = int(input("The to number: "))
             while True:
                 if from_command <= to_command and to_command <= len(command_history) :
+                    print("The list of previous commands:")
                     for i in range(from_command, to_command):
-                        print(f"{command_history[i]}")
+                        print(f"{command_history[i-1]}")
                     break
                 else:
                     print("Invalid from and to range")
