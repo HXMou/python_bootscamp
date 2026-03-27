@@ -13,6 +13,9 @@ class Employee:
         self.position = postion
         self.salary = salary
 
+    def __str__(self):
+        return f"{self.f_name} {self.l_name} {self.position} ({self.dep})"
+
 managers = []
 employees = []
 
@@ -37,6 +40,34 @@ def input_employees_date():
 
     return new_manager
 
+def list_subordinate():
+    print("List of manager's subordinates")
+    m_first_name = input("Enter manager's first name: ")
+    m_last_name = input("Enter manger's last name: ")
+
+    for manager in managers:
+        if manager.f_name == m_first_name and manager.l_name == m_last_name:
+            for employee in employees:
+                if employee.department == manager.department:
+                    print(employee)
+
+def list_employee_position():
+    position = input("Enter position name: ")
+    for employee in employees:
+        if employee.position == position:
+            print(employee)
+
+def balance_display():
+    salary_emplpoyees = 0.0
+    for employee in employees:
+        salary_emplpoyees += employee.salary
+    salary_managers = 0.0
+    for manager in managers:
+        salary_managers += manager.salary
+                
+    total_salary = salary_managers+salary_emplpoyees
+    return total_salary
+
 while True:
     action = input("What you want to do?: [create, manage, exit]").lower()
 
@@ -49,20 +80,14 @@ while True:
             if manage_action == "exit":
                 break
             elif manage_action == "position":
-                pass
-            elif manage_action == "subordinates":
-                print("List of manager's subordinates")
-                m_first_name = input("Enter manager's first name: ")
-                m_last_name = input("Enter manger's last name: ")
+                print("List of employee on this posotion: ")
+                list_employee_position()
 
-                for manager in managers:
-                    if manager.f_name == m_first_name and manager.l_name == m_last_name:
-                        for employee in employees:
-                            if employee.department == manager.department:
-                                print(employee)
+            elif manage_action == "subordinates":
+                list_subordinate()
 
             elif manage_action == "balance":
-                pass
+                print(f"Total salary is {balance_display()}")
 
     elif action == "create":
         while True:
