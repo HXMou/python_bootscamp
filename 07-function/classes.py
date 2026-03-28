@@ -9,10 +9,31 @@ class User: # class has the initial letter Capital letter, has to be an signle e
         self.city = city
         self.age = age
 
-user1 = User("John", "Wick", "Paris", 37)
+    #methods of class
+    # Always must use self as the first peramiter 
+    def print_detail(self):
+        print(f"First name: {self.f_name}")
+        print(f"Last name: {self.l_name}")
+        print(f"City: {self.city}")
 
-def print_user_info(user):
-    print(f"First name: {user.f_name}")
-    print(f"Last name: {user.l_name}")
-    print(f"City: {user.city}")
+    def print_hello(self):
+        print(f"Hello {self.f_name}")
 
+class ProductPiece:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+    def getPrice(self, quantity):
+        total_price = quantity*self.price
+
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def make_noise(self):
+        print(f"{self.name} is barking!")
+
+torvi = Dog("Torvi")
+
+torvi.make_noise()
